@@ -2,6 +2,7 @@ import 'package:atividade_3/logic/authentication/auth_bloc.dart';
 import 'package:atividade_3/logic/authentication/auth_state.dart';
 import 'package:atividade_3/view/screens/anuncio_screen.dart';
 import 'package:atividade_3/view/screens/cadastro_screen.dart';
+import 'package:atividade_3/view/screens/corolla_screen.dart';
 import 'package:atividade_3/view/screens/home_screen.dart';
 import 'package:atividade_3/view/screens/List_screen.dart';
 import 'package:atividade_3/view/screens/login_screen.dart';
@@ -25,6 +26,8 @@ class Wrapper extends StatelessWidget {
           return CadastroScreen();
         } else if (state is CadastradoState) {
           return ThirdScreen();
+        } else if (state is Honda) {
+          return CorollaScreen();
         } else {
           return MyTabBarLayout();
         }
