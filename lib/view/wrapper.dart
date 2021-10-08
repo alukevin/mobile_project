@@ -26,8 +26,6 @@ class Wrapper extends StatelessWidget {
           return CadastroScreen();
         } else if (state is CadastradoState) {
           return ThirdScreen();
-        } else if (state is Honda) {
-          return CorollaScreen();
         } else {
           return MyTabBarLayout();
         }

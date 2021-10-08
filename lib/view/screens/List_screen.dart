@@ -1,5 +1,6 @@
 import 'package:atividade_3/logic/authentication/auth_bloc.dart';
 import 'package:atividade_3/logic/authentication/auth_event.dart';
+import 'package:atividade_3/view/screens/corolla_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,11 +38,10 @@ class SecondScreen extends StatelessWidget {
           leading: Image.asset('honda.jpg'),
           title: Text('Honda Civic'),
           onTap: () {
-            if (formkey.currentState.validate()) {
-              formkey.currentState.save();
-              // Lançando evento
-              BlocProvider.of<AuthBloc>(context).add(HondaScreen());
-            }
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ScreenCorolla()),
+            );
           },
         ),
         ListTile(

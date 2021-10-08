@@ -3,11 +3,11 @@ import 'package:atividade_3/logic/authentication/auth_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CorollaScreen extends StatelessWidget {
+class ScreenCorolla extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     GlobalKey<FormState> formkey = new GlobalKey();
-    
+
     return MaterialApp(
         title: "Toyota Corolla",
         home: Scaffold(
@@ -28,10 +28,9 @@ class CorollaScreen extends StatelessWidget {
                   child: Text('Toyota Corrola'),
                 ),
                 Container(
-                  child: Text('Valor: R$82.900,00'),
+                  child: Text('Valor: 82.900 reais'),
                 ),
                 Divider(),
-                
                 ElevatedButton(
                   onPressed: () {
                     showAlertDialog1(context);
@@ -48,12 +47,13 @@ class CorollaScreen extends StatelessWidget {
               ],
             )));
   }
-  showAlertDialog1(BuildContext context) { 
-      // configura o button
+
+  showAlertDialog1(BuildContext context) {
+    // configura o button
     // ignore: deprecated_member_use
     Widget okButton = FlatButton(
       child: Text("OK"),
-      onPressed: () { },
+      onPressed: () {},
     );
     // configura o  AlertDialog
     AlertDialog alerta = AlertDialog(
