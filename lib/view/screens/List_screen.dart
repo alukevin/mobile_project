@@ -27,11 +27,10 @@ class SecondScreen extends StatelessWidget {
           leading: Image.asset('corolla.jpg'),
           title: Text('Toyota Corrola'),
           onTap: () {
-            if (formkey.currentState.validate()) {
-              formkey.currentState.save();
-              // Lançando evento
-              BlocProvider.of<AuthBloc>(context).add(CorollaScreen());
-            }
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ScreenCorolla()),
+            );
           },
         ),
         ListTile(
@@ -48,22 +47,14 @@ class SecondScreen extends StatelessWidget {
           leading: Image.asset('meriva.jpg'),
           title: Text('Chevrolet Meriva'),
           onTap: () {
-            if (formkey.currentState.validate()) {
-              formkey.currentState.save();
-              // Lançando evento
-              BlocProvider.of<AuthBloc>(context).add(MerivaScreen());
-            }
+           
           },
         ),
         ListTile(
           leading: Image.asset('onix.jpg'),
           title: Text('Chevrolet Onix'),
           onTap: () {
-            if (formkey.currentState.validate()) {
-              formkey.currentState.save();
-              // Lançando evento
-              BlocProvider.of<AuthBloc>(context).add(OnixScreen());
-            }
+            
           },
         )
       ],

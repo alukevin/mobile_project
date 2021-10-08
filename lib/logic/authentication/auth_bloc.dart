@@ -20,14 +20,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       yield Cadastro();
     } else if (event is CadastradoEvent) {
       yield CadastradoState();
-    } else if (event is CorollaScreen) {
-      yield Corolla();
-    } else if (event is HondaScreen) {
-      yield Honda();
-    } else if (event is MerivaScreen) {
-      yield Meriva();
-    } else if (event is OnixScreen) {
-      yield Onix();
-    }
+    } 
   }
 }

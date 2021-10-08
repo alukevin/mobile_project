@@ -1,5 +1,6 @@
 import 'package:atividade_3/logic/authentication/auth_bloc.dart';
 import 'package:atividade_3/logic/authentication/auth_event.dart';
+import 'package:atividade_3/view/layout/tab_bar_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,13 +38,7 @@ class ScreenCorolla extends StatelessWidget {
                   },
                   child: Text("Comprar"),
                 ),
-                FloatingActionButton(
-                  onPressed: () {
-                    BlocProvider.of<AuthBloc>(context).add(Logout());
-                  },
-                  tooltip: "Logout",
-                  child: Icon(Icons.logout),
-                )
+
               ],
             )));
   }
@@ -53,7 +48,12 @@ class ScreenCorolla extends StatelessWidget {
     // ignore: deprecated_member_use
     Widget okButton = FlatButton(
       child: Text("OK"),
-      onPressed: () {},
+      onPressed: () {
+       Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MyTabBarLayout()),
+            );
+      },
     );
     // configura o  AlertDialog
     AlertDialog alerta = AlertDialog(

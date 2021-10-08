@@ -7,7 +7,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     GlobalKey<FormState> formkey = new GlobalKey();
-    return Scaffold(
+    return MaterialApp(
+      title: 'Home',
+      home: Scaffold(
         appBar: AppBar(title: Text('Home')),
         body: Form(
           key: formkey,
@@ -36,6 +38,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-        ));
+        )));
   }
 }

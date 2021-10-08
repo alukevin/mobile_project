@@ -1,5 +1,6 @@
 import 'package:atividade_3/logic/authentication/auth_bloc.dart';
 import 'package:atividade_3/logic/authentication/auth_event.dart';
+import 'package:atividade_3/view/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -31,7 +32,10 @@ class FirstScreen extends StatelessWidget {
                 ),
                 FloatingActionButton(
                   onPressed: () {
-                    BlocProvider.of<AuthBloc>(context).add(Logout());
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                    );
                   },
                   tooltip: "Logout",
                   child: Icon(Icons.logout),

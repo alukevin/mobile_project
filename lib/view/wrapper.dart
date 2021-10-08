@@ -26,7 +26,7 @@ class Wrapper extends StatelessWidget {
           return CadastroScreen();
         } else if (state is CadastradoState) {
           return ThirdScreen();
-        } else {
+        } else{
           return MyTabBarLayout();
         }
       },
