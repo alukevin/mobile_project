@@ -2,7 +2,13 @@ abstract class AuthEvent {}
 
 class LoginScreen extends AuthEvent {}
 
-class CadastroScreen extends AuthEvent {}
+class CadastroScreen extends AuthEvent {
+  String username;
+  String password;
+  String email;
+
+  CadastroScreen({this.username, this.password, this.email});
+}
 
 class CadastradoEvent extends AuthEvent {}
 

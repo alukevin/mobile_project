@@ -4,13 +4,13 @@ import 'package:atividade_3/view/layout/tab_bar_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ScreenCorolla extends StatelessWidget {
+class ScreenOnix extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     GlobalKey<FormState> formkey = new GlobalKey();
 
     return Scaffold(
-        appBar: AppBar(title: Text("Toyota Corolla")),
+        appBar: AppBar(title: Text("Chevrolet Onix")),
         body: Column(
           children: [
             Container(
@@ -19,15 +19,15 @@ class ScreenCorolla extends StatelessWidget {
                   border: Border.all(color: Colors.black)),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(150),
-                child: Image.asset("assets/corolla.jpg",
+                child: Image.asset("assets/onix.jpg",
                     height: 350, fit: BoxFit.fitHeight),
               ),
             ),
             Container(
-              child: Text('Toyota Corrola'),
+              child: Text('Chevrolet Onix'),
             ),
             Container(
-              child: Text('Valor: 82.900 reais'),
+              child: Text('Valor: 67.990 reais'),
             ),
             Divider(),
             ElevatedButton(

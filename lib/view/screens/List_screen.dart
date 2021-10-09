@@ -11,10 +11,6 @@ class SecondScreen extends StatelessWidget {
     return MaterialApp(
         title: "Nossos Carros",
         home: Scaffold(
-          appBar: AppBar(
-              title: Row(
-            children: [Text('Nossos Carros'), Image.asset('Logo.png')],
-          )),
           body: buildListView(context),
         ));
   }
@@ -46,16 +42,12 @@ class SecondScreen extends StatelessWidget {
         ListTile(
           leading: Image.asset('meriva.jpg'),
           title: Text('Chevrolet Meriva'),
-          onTap: () {
-           
-          },
+          onTap: () {},
         ),
         ListTile(
           leading: Image.asset('onix.jpg'),
           title: Text('Chevrolet Onix'),
-          onTap: () {
-            
-          },
+          onTap: () {},
         )
       ],
     );
