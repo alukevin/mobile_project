@@ -24,10 +24,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     } else if (event is LoginScreen) {
       yield Login();
     } else if (event is CadastroScreen) {
-      Usuario u = Usuario(event.username, event.password, event.email);
-      db.insertNote(u);
       yield Cadastro();
     } else if (event is CadastradoEvent) {
+      Usuario u = Usuario(event.username, event.password, event.email);
+      db.insertNote(u);
       yield CadastradoState();
     }
   }

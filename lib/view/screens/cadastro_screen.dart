@@ -10,6 +10,7 @@ class CadastroScreen extends StatelessWidget {
     String username;
     String password;
     String confirmPassword;
+    String email;
     return Scaffold(
         appBar: AppBar(title: Text("Cadastro")),
         body: Form(
@@ -69,6 +70,9 @@ class CadastroScreen extends StatelessWidget {
                     }
                     return null;
                   },
+                  onSaved: (String inValue) {
+                    email = inValue;
+                  },
                 ),
                 // Quero acrescentar um campo radio
                 Divider(),
@@ -77,7 +81,10 @@ class CadastroScreen extends StatelessWidget {
                     if (formkey.currentState.validate()) {
                       formkey.currentState.save();
                       // Lançando evento
-                      BlocProvider.of<AuthBloc>(context).add(CadastradoEvent());
+                      BlocProvider.of<AuthBloc>(context).add(CadastradoEvent(
+                          username: username,
+                          password: password,
+                          email: email));
                     }
                   },
                   child: Text("Cadastrar"),
