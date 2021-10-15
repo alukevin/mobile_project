@@ -12,7 +12,7 @@ class DatabaseLocalServer {
 
   static Database _database;
 
-  String noteTable = "note_table";
+  String noteTable = "usuarios";
   String colUsuario = "usuario";
   String colSenha = "senha";
   String colId = "id";
@@ -27,7 +27,7 @@ class DatabaseLocalServer {
 
   Future<Database> initializeDatabase() async {
     Directory directory = await getApplicationDocumentsDirectory();
-    String path = directory.path + "notes.db";
+    String path = directory.path + "usuarios.db";
 
     return openDatabase(path, version: 1, onCreate: _createDb);
   }
@@ -38,7 +38,7 @@ class DatabaseLocalServer {
            $colId INTEGER PRIMARY KEY AUTOINCREMENT,
            $colUsuario TEXT,
            $colSenha TEXT,
-           $colEmail TEXT,
+           $colEmail TEXT
           );
     """);
   }
@@ -50,13 +50,35 @@ class DatabaseLocalServer {
 
   Future<List> getPassword(String usuario) async {
     Database db = await this.database;
+    List<Map<String, Object>> noteMapList =
+        await db.rawQuery("SELECT * FROM $noteTable;");
+    List<Usuario> usuarioList = <Usuario>[];
 
-    List<Map> maps = await db.query(noteTable,
-        columns: [colSenha], where: "$colUsuario = ?", whereArgs: [usuario]);
-    if (maps.length > 0) {
-      return maps;
-    } else {
-      return null;
+    for (int i = 0; i < noteMapList.length; i++) {
+      Usuario usuario = Usuario.fromMap(noteMapList[i]);
+
+      usuarioList.add(usuario);
     }
+    return usuarioList;
+  }
+
+  Future<int> deleteNote(int noteId) async {
+    Database db = await this.database;
+
+    int result = await db.rawDelete("""
+        DELETE FROM $noteTable WHERE $colId = $noteId;
+      """);
+    return result;
+  }
+
+  Future<List<Usuario>> getUsuarios() async {
+    Database db = await this.database;
+
+    var resultado = await db.query(noteTable);
+
+    List<Usuario> lista = resultado.isNotEmpty
+        ? resultado.map((u) => Usuario.fromMap(u)).toList()
+        : [];
+    return lista;
   }
 }

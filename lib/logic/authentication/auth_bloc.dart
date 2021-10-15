@@ -11,7 +11,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   @override
   Stream<AuthState> mapEventToState(AuthEvent event) async* {
     if (event is LoginUser) {
-      db.getPassword(event.username).then((lista) => {usuarios = lista});
+      DatabaseLocalServer.helper
+          .getPassword(event.username)
+          .then((lista) => {usuarios = lista});
       if (event.password == usuarios[0].senha) {
         yield Authenticated(nome: event.username);
       } else {
@@ -26,8 +28,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     } else if (event is CadastroScreen) {
       yield Cadastro();
     } else if (event is CadastradoEvent) {
-      Usuario u = Usuario(event.username, event.password, event.email);
-      db.insertNote(u);
+      Usuario u = Usuario();
+      u.usuario = event.username;
+      u.senha = event.password;
+      u.email = event.email;
+      DatabaseLocalServer.helper.insertNote(u);
       yield CadastradoState();
     }
   }

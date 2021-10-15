@@ -2,22 +2,26 @@ class Usuario {
   String _usuario;
   String _senha;
   String _email;
+  int _id;
 
-  Usuario(String username, String password, String email) {
+  Usuario() {
     _usuario = "";
     _senha = "";
     _email = "";
+    _id = 0;
   }
 
   Usuario.fromMap(map) {
     this._usuario = map["usuario"];
     this._senha = map["senha"];
     this._email = map["email"];
+    this._id = map["id"];
   }
 
   String get usuario => _usuario;
-  String get email => _email;
   String get senha => _senha;
+  String get email => _email;
+  int get id => _id;
 
   set usuario(String newUsuario) {
     if (newUsuario.length > 0) {
@@ -25,7 +29,7 @@ class Usuario {
     }
   }
 
-  set description(String newSenha) {
+  set senha(String newSenha) {
     if (newSenha.length > 0) {
       this._senha = newSenha;
     }
